@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>钱多多の博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://cybaol.github.io/"/>
+  <updated>2019-11-19T16:47:20.318Z</updated>
+  <id>https://cybaol.github.io/</id>
+  
+  <author>
+    <name>Kino</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Be a magical developer</title>
+    <link href="https://cybaol.github.io/2019/11/19/ambition/"/>
+    <id>https://cybaol.github.io/2019/11/19/ambition/</id>
+    <published>2019-11-19T15:15:37.000Z</published>
+    <updated>2019-11-19T16:47:20.318Z</updated>
+    
+    <content type="html"><![CDATA[<p>《一百种自杀方法》最后一页写着活下去。</p><a id="more"></a><ul><li><a href="https://www.choupangxia.com/2019/09/26/%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%B3%95%EF%BC%9A%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95/" target="_blank" rel="noopener">费曼学习法</a>  </li><li>康奈尔笔记  </li><li>计算机组成原理(秃头程序员的进阶感觉可还行)(<a href="https://www.bilibili.com/video/av15123338" target="_blank" rel="noopener">哈工大</a>)  </li><li>数据结构与算法(不C9 无算法 一直都坚信它是程序的灵魂 加油)(<a href="https://www.bilibili.com/video/av7134874" target="_blank" rel="noopener">北大</a>+<a href="https://www.bilibili.com/video/av49361421" target="_blank" rel="noopener">清华</a>+算法导论原书第三版)  </li><li>操作系统(听说过bug10吧) (<a href="https://www.bilibili.com/video/av6538245" target="_blank" rel="noopener">北大</a>)  </li><li>计算机网络(学好卖网线)(<a href="./计算机网络原理：自顶向下方法（第6版）.pdf">自顶而下英文原版</a>)  </li><li>编译原理(<a href="https://www.bilibili.com/video/av17649289" target="_blank" rel="noopener">哈工大</a>)</li><li>嵌入式系统(<a href="https://www.bilibili.com/video/av29287517" target="_blank" rel="noopener">清华</a>)</li><li>信息论与编码（<a href="https://www.bilibili.com/video/av28661250" target="_blank" rel="noopener">清华</a>+<a href="https://www.bilibili.com/video/av26735580" target="_blank" rel="noopener">西电</a>）</li><li><a href="https://www.bilibili.com/video/av9912938" target="_blank" rel="noopener">机器学习</a>  </li><li>前端  </li><li>数据库  </li><li>健身  </li><li>个人札记  <ol><li>学点经济学</li><li>为竞赛而生  </li><li>多看英文原版书  </li><li>多线程+设计模式  </li><li>多看项目源码  </li><li>脚踏实地的理想主义者，既要有高远的理想也要有脚踏实地的精神  </li><li>他们只是起点比我们高 – 2018-10-3 打卡南京大学鼓楼校区  </li><li>见见有趣的人，读读有趣的书，讲讲有趣的故事。  </li><li>有时候我们会觉得自己后知后觉，那是因为学习的太少，了解的太少，很多问题前人已经总结好了现成的方法和方案，我们却不知道，还在自己探索，当然行动缓慢，后知后觉了。只有站在巨人的肩膀上才能看得更远。   </li><li>2019-10-26打卡东南大学四牌楼校区图书馆  </li><li>备战华北电力大学计算机专硕（<a href="./华北电力大学2020专业课大纲.doc">844数据结构</a>）  </li><li><a href="https://app.yinxiang.com/shard/s40/nl/24222849/82d590e6-3c3b-4af1-87c2-8964f41501e9/" target="_blank" rel="noopener">C语言笔记</a>  </li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《一百种自杀方法》最后一页写着活下去。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="techs" scheme="https://cybaol.github.io/categories/techs/"/>
+    
+    
+      <category term="成长" scheme="https://cybaol.github.io/tags/%E6%88%90%E9%95%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大学阅读记录</title>
+    <link href="https://cybaol.github.io/2019/11/07/book/"/>
+    <id>https://cybaol.github.io/2019/11/07/book/</id>
+    <published>2019-11-07T11:32:37.000Z</published>
+    <updated>2019-11-08T10:20:37.591Z</updated>
+    
+    <content type="html"><![CDATA[<p>读傻了吧你</p><a id="more"></a><pre><code>由于博览群书（名）想不起来全部的书，下面列举了一些个人觉得值得一读的书。</code></pre><h2 id="1-算法类"><a href="#1-算法类" class="headerlink" title="1. 算法类"></a>1. 算法类</h2><p><img src="./images/QQ20180731-151440@2x.png" alt="0"><br><img src="./images/QQ20180731-190112@2x.png" alt="1"><br><img src="./images/20191107-2373273@2x.png" alt="11"><br><img src="./images/20191107-4662123@2x.png" alt="12"><br><img src="./images/20191107-2633627@2x.png" alt="13"><br><img src="./images/20191107-3522626@2x.png" alt="13"><br><img src="./images/QQ20180731-190810@2x.png" alt="3"></p><h2 id="2-竞赛类"><a href="#2-竞赛类" class="headerlink" title="2. 竞赛类"></a>2. 竞赛类</h2><p><img src="./images/QQ20180731-191158@2x.png" alt="4"><br><img src="./images/QQ20180731-192227@2x.png" alt="5"><br><img src="./images/QQ20180731-191409@2x.png" alt="2"></p><h2 id="3-语言类杂书"><a href="#3-语言类杂书" class="headerlink" title="3. 语言类杂书"></a>3. 语言类杂书</h2><p><img src="./images/20191107-2342849@2x.png" alt="6"><br><img src="./images/20191107-3648283@2x.png" alt="7"><br><img src="./images/20191107-2433326@2x.png" alt="8"><br><img src="./images/20191107-3281282@2x.png" alt="9"></p><h2 id="4-Python学习"><a href="#4-Python学习" class="headerlink" title="4. Python学习"></a>4. Python学习</h2><p><img src="./images/QQ20180731-210023@2x.png" alt="10"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;读傻了吧你&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="books" scheme="https://cybaol.github.io/categories/books/"/>
+    
+    
+      <category term="阅读" scheme="https://cybaol.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图论算法合集</title>
+    <link href="https://cybaol.github.io/2019/11/01/Graph/"/>
+    <id>https://cybaol.github.io/2019/11/01/Graph/</id>
+    <published>2019-11-01T03:00:37.000Z</published>
+    <updated>2019-11-08T06:04:39.875Z</updated>
+    
+    <content type="html"><![CDATA[<p>图论我不会啊~</p><a id="more"></a><h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><pre><code>* 有两种存储方式：邻接矩阵和邻接表* 在一些顶点数目比较大（一般顶点个数在1000以上）的情况下，使用邻接表而  不是邻接矩阵来存储图。如果是稀疏图，用邻接表，如果是稠密图，用邻接矩阵。</code></pre><h2 id="深度优先搜索dfs遍历图"><a href="#深度优先搜索dfs遍历图" class="headerlink" title="深度优先搜索dfs遍历图"></a>深度优先搜索dfs遍历图</h2><ul><li>按深度优先的方式访问所有未被访问的结点，在结点被访问过后标记为已访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dfs(u) &#123;</span><br><span class="line">  vis[u] = true;</span><br><span class="line">  for(从u出发到能到达的所有顶点v)</span><br><span class="line">    if(vis[v] == false)</span><br><span class="line">      dfs(v);</span><br><span class="line">&#125;</span><br><span class="line">dfsTrave(G) &#123;</span><br><span class="line">  for(G的所有结点u)</span><br><span class="line">    if(vis[u] == false)</span><br><span class="line">      dfs(u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//邻接矩阵版 DFS</span><br><span class="line"></span><br><span class="line">int n, G[maxV][maxV];//n顶点数 maxV最大顶点数</span><br><span class="line">bool visited[maxV] = &#123;false&#125;;//记录顶点是否被访问过</span><br><span class="line"></span><br><span class="line">void dfs(int u, int depth) &#123;</span><br><span class="line">    visited[u] = true;</span><br><span class="line">    //在这里可以对u进行操作</span><br><span class="line">    for(int v = 0; v &lt; n; ++v)//遍历u可以到达的顶点</span><br><span class="line">        if(visited[v] == false &amp;&amp; G[u][v] != INF)</span><br><span class="line">            dfs(v, depth + 1);//访问v 深度+1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void travelDFS() &#123;</span><br><span class="line">    for(int u = 0; u &lt; n; ++u)</span><br><span class="line">        if(visited[u] == false)</span><br><span class="line">            dfs(u, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//邻接表版 DFS</span><br><span class="line">void dfs(int u, int depth) &#123;</span><br><span class="line">  vis[u] = true;</span><br><span class="line">  for(int u = 0; u &lt; arr[u].size(); u++)</span><br><span class="line">    dfs(v, depth + 1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void dfsTrave() &#123;</span><br><span class="line">  for(int u = 0; u &lt; n; u++) &#123;</span><br><span class="line">    if(vis[u] == false)</span><br><span class="line">      dfs(u, 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="广度优先搜索bfs遍历图"><a href="#广度优先搜索bfs遍历图" class="headerlink" title="广度优先搜索bfs遍历图"></a>广度优先搜索bfs遍历图</h2><ul><li>建立一个队列，把初始定点加入队列，然后每次都取出队首元素进行访问，并把该定点<br>除法可以到达的未曾加入过队列（而不是未访问）的定点全部加入队列，直到队列为空。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bfs(u) &#123;</span><br><span class="line">  queue q;</span><br><span class="line">  将u入队</span><br><span class="line">  inq[u] = true;</span><br><span class="line">  while(q非空) &#123;</span><br><span class="line">    for(从u出发到可到达的所有顶点v) &#123;</span><br><span class="line">      if(inq[v] == false)</span><br><span class="line">        将v入队</span><br><span class="line">        inq[v] = true;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">bfsTrave(G) &#123;</span><br><span class="line">  for(G的所有顶点u) &#123;</span><br><span class="line">    if(inq[u] == false)</span><br><span class="line">      bfs(u);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//邻接矩阵版 BFS</span><br><span class="line">int n, G[maxV][maxV];//n顶点数 maxV最大顶点数</span><br><span class="line">bool inq[maxV] = &#123;false&#125;;//记录顶点的是否入队</span><br><span class="line"></span><br><span class="line">void bfs(int u) &#123;//u顶点编号</span><br><span class="line">queue&lt;int&gt; q;</span><br><span class="line">q.push(u);//入队</span><br><span class="line">inq[u] = true;//标记u已入队</span><br><span class="line">while(!q.empty()) &#123;</span><br><span class="line">int temp = q.front();//出队</span><br><span class="line">q.pop();</span><br><span class="line">printf(&quot;%d\n&quot;, temp);//操作</span><br><span class="line">for(int v = 0; v &lt; n; ++v)//遍历u所在连通块（未入队）并入队</span><br><span class="line">if(inq[v] == false &amp;&amp; G[u][v] != INF)&#123;</span><br><span class="line">q.push(v);//入队</span><br><span class="line">inq[v] = true;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;//bfs end</span><br><span class="line"></span><br><span class="line">/*邻接表：</span><br><span class="line">for(int i = 0; i &lt; arr[u].size(); i++) &#123;</span><br><span class="line">  int v= arr[u][i];</span><br><span class="line">  if(inq[v] == false) &#123;</span><br><span class="line">    q.push(v);</span><br><span class="line">    inq[v] = true;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">void travelBFS() &#123;</span><br><span class="line">for(int v; v &lt; n; ++v)</span><br><span class="line">if (inq[v] == false)</span><br><span class="line">bfs(v);//遍历v所在连通块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//带层数的 邻接表</span><br><span class="line">struct node &#123;</span><br><span class="line">  int v;//顶点编号</span><br><span class="line">  int layer;//顶点层号</span><br><span class="line">&#125;;</span><br><span class="line">next.layer = top.layer + 1;</span><br><span class="line">//邻接表中的类型是node，而不是int</span><br><span class="line">vector&lt;node&gt; Adj[N]</span><br></pre></td></tr></table></figure><!--# 最短路径    单源最短路径：计算源点到其他各顶点的最短路径的长度    全局最短路径：图中任意两点的最短路径    Dijkstra、Bellman-Ford、SPFA求单源最短路径    Floyed可以求全局最短路径，但是效率比较低    SPFA算法是Bellman-Ford算法的队列优化    Dijkstra算法不能求带负权边的最短路径，而SPFA算法、Bellman-Ford算法、Floyd-Warshall可以求带负权边的最短路径。    Bellman-Ford算法的核心代码只有4行，Floyd-Warshall算法的核心代码只有5行。    深度优先遍历可以求一个点到另一个点的最短路径的长度## 单源最短路径思想来源：图的广度优先遍历bfs![1](./images/latestPath.png)-->]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;图论我不会啊~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="algorithm" scheme="https://cybaol.github.io/categories/algorithm/"/>
+    
+    
+      <category term="图论" scheme="https://cybaol.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>debug</title>
+    <link href="https://cybaol.github.io/2019/10/24/warings/"/>
+    <id>https://cybaol.github.io/2019/10/24/warings/</id>
+    <published>2019-10-24T14:35:37.000Z</published>
+    <updated>2019-11-07T11:25:16.620Z</updated>
+    
+    <content type="html"><![CDATA[<p>debug 之于 coder</p><a id="more"></a><p>一定一定要会debug！debug！debug！血的教训，从来都不debug的我，上课看老师debuging都不以为意,大佬们给的建议也是左耳进右耳出。花了一下午和一个晚上的时间终于把b站图标给改出来了。以后工作了面对着几千行几万行代码你能一行一行查吗？<br>还有能用框架就用框架！那效率真的不是一般的高！别傻乎乎地一行一行地去敲。</p><h1 id="发此博客引以为戒！！！"><a href="#发此博客引以为戒！！！" class="headerlink" title="发此博客引以为戒！！！"></a>发此博客引以为戒！！！</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;debug 之于 coder&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="techs" scheme="https://cybaol.github.io/categories/techs/"/>
+    
+    
+      <category term="警示" scheme="https://cybaol.github.io/tags/%E8%AD%A6%E7%A4%BA/"/>
+    
+  </entry>
+  
+</feed>
