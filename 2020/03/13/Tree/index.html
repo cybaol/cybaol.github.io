@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>树算法 | 钱多多の博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="早起的虫儿被鸟吃">
+<meta name="keywords" content="树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树算法">
+<meta property="og:url" content="https:&#x2F;&#x2F;cybaol.github.io&#x2F;2020&#x2F;03&#x2F;13&#x2F;Tree&#x2F;index.html">
+<meta property="og:site_name" content="钱多多の博客">
+<meta property="og:description" content="早起的虫儿被鸟吃">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-13T06:59:12.020Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: true
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Kino</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/categories/books">我读过的书</a></li>
+                        
+                            <li><a  href="/categories/algorithm">算法</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/cybaol" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2216083675" title="weibo">weibo</a>
+                            
+                                <a class="fl bilibili"  target="_blank" href="https://space.bilibili.com/340738582" title="bilibili">bilibili</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E8%AD%A6%E7%A4%BA/" style="font-size: 10px;">警示</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 10px;">阅读</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">I am kino.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Kino</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Kino</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/categories/books">我读过的书</a></li>
+                
+                    <li><a href="/categories/algorithm">算法</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/cybaol" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2216083675" title="weibo">weibo</a>
+                    
+                        <a class="bilibili" target="_blank" href="https://space.bilibili.com/340738582" title="bilibili">bilibili</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/13/Tree/" class="article-date">
+      <time datetime="2020-03-12T23:46:00.000Z" itemprop="datePublished">2020-03-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      树算法
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>早起的虫儿被鸟吃</p>
+<a id="more"></a>
+
+<pre><code>*二叉树的存储：链式存储和数组。
+*二叉树树的遍历：先序、中序、后序、层序。</code></pre><h1 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h1><h2 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">算法思想：</span><br><span class="line">①将根节点root加入队列q。</span><br><span class="line">②取出队首结点，访问之。</span><br><span class="line">③如果该结点有左孩子，将左孩子入队。</span><br><span class="line">④如果该结点有有孩子，将有孩子入队。</span><br><span class="line">⑤返回②，直到队列为空。</span><br><span class="line"></span><br><span class="line">void LayerOrder(node* root) &#123; //带层次</span><br><span class="line">	queue&lt;node*&gt; q;</span><br><span class="line">	root-&gt;layer = 1;</span><br><span class="line">	q.push(root);</span><br><span class="line">	while(!q.empty())&#123;</span><br><span class="line">		node* p = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		printf(&quot;%d &quot;, p-&gt;data);</span><br><span class="line">		if(p-&gt;left != NULL) &#123;</span><br><span class="line">			p-&gt;left-&gt;layer = p-&gt;layer + 1;</span><br><span class="line">			q.push(p-&gt;left);</span><br><span class="line">		&#125;</span><br><span class="line">		if(p-&gt;right != NULL) &#123;</span><br><span class="line">			p-&gt;right-&gt;layer = p-&gt;layer + 1;</span><br><span class="line">			q.push(p-&gt;right);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="建立二叉树"><a href="#建立二叉树" class="headerlink" title="建立二叉树"></a>建立二叉树</h1><h2 id="已知先序中序"><a href="#已知先序中序" class="headerlink" title="已知先序中序"></a>已知先序中序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">算法思想：</span><br><span class="line">①先序数组的第零个结点为根结点。</span><br><span class="line">②遍历中序数组找出根结点位置并记录。</span><br><span class="line">③计算中序数组左子树个数</span><br><span class="line">④递归建立左右子树。</span><br><span class="line"></span><br><span class="line">node* create(int preL, int preR, int inL, int inR) &#123;</span><br><span class="line">	if(preL &gt; preR) return NULL;</span><br><span class="line">	node* root = new node;</span><br><span class="line">	root-&gt;data = pre[preL];</span><br><span class="line">	int k = inL;</span><br><span class="line">	for(; k &lt; inR; k++)</span><br><span class="line">		if(in[k] == root-&gt;data) break;</span><br><span class="line">	int numLeft = k - inL;</span><br><span class="line">	root-&gt;left = create(preL + 1, preL + numLeft, inL, k - 1);</span><br><span class="line">	root-&gt;right = create(preL + numLeft + 1, preR, k + 1, inR);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//其他情况算法类似，重点是确定根结点和数组区间范围。</span><br></pre></td></tr></table></figure>
+
+<h1 id="二叉查找树-BST"><a href="#二叉查找树-BST" class="headerlink" title="二叉查找树(BST)"></a>二叉查找树(BST)</h1><pre><code>* 左边小右边大
+* 对二叉查找树进行&quot;中序&quot;遍历，遍历结果是有序的</code></pre><h2 id="查找操作"><a href="#查找操作" class="headerlink" title="查找操作"></a>查找操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void search(node* root, const int x) &#123;</span><br><span class="line">	if(root == NULL) &#123;</span><br><span class="line">		printf(&quot;search failed!\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(x == root-&gt;data)</span><br><span class="line">		printf(&quot;%d\n&quot;, root-&gt;data);</span><br><span class="line">	else if(x &lt; root-&gt;data)</span><br><span class="line">		search(root-&gt;left, x);</span><br><span class="line">	else</span><br><span class="line">		search(root-&gt;right, x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void insert(node* &amp;root, const int x) &#123;</span><br><span class="line">	if(root == NULL) &#123; //插入位置</span><br><span class="line">		root = new node;</span><br><span class="line">		root-&gt;data = x;</span><br><span class="line">		root-&gt;left = root-&gt;right = NULL;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(x == root-&gt;data) return; //结点已存在 直接返回</span><br><span class="line">	else if(x &lt; root-&gt;data)</span><br><span class="line">		insert(root-&gt;left, x);</span><br><span class="line">	else</span><br><span class="line">		insert(root-&gt;right, x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉查找树的建立"><a href="#二叉查找树的建立" class="headerlink" title="二叉查找树的建立"></a>二叉查找树的建立</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node* create(int data[]) &#123;</span><br><span class="line">	node* root = NULL;</span><br><span class="line">	for(const auto val : data) insert(root, val);</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉查找树的删除"><a href="#二叉查找树的删除" class="headerlink" title="二叉查找树的删除"></a>二叉查找树的删除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//寻找以root为根结点的树中的最大权值结点</span><br><span class="line">node* findMAX(node* root) &#123;</span><br><span class="line">	while(root-&gt;right != NULL)</span><br><span class="line">		root = root-&gt;right;</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br><span class="line">//寻找以root为根结点的树中的最小权值结点</span><br><span class="line">node* findMin(node* root) &#123;</span><br><span class="line">	while(root-&gt;left != NULL)</span><br><span class="line">		root = root-&gt;left;</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">算法思想：</span><br><span class="line">①如果当前结点root为空，说明不存在权值为给定权值 直接返回。</span><br><span class="line">②如果当前结点root的权值恰为给定权值x，进入删除处理</span><br><span class="line">a)如果当前结点root不存在左右孩子，说明叶子结点，直接删除。</span><br><span class="line">b)如果当前结点root存在左孩子，那么在左子树中寻找结点前驱pre，然后让pre的数据覆盖root，接着在左子树中删除结点pre。</span><br><span class="line">c)如果当前结点root存在右孩子，那么在右子树中寻找结点后继next，然后让next的数据覆盖root，接着在右子树中删除结点next。</span><br><span class="line">③如果给定的权值x小于当前结点的权值，则在左子树中递归删除权值为x的结点。</span><br><span class="line">④如果给定的权值x大于当前结点的权值，则在右子树中递归删除权值为x的结点。</span><br><span class="line"></span><br><span class="line">void deleteNode(node* root, int x) &#123;</span><br><span class="line">	if(root == NULL) return; //不存在权值为x的结点</span><br><span class="line">	if(x == root-&gt;data) &#123;//找到欲删除结点</span><br><span class="line">		//delete(root);</span><br><span class="line">		if(root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL)</span><br><span class="line">			root = NULL;</span><br><span class="line">		else if(root-&gt;left != NULL) &#123;</span><br><span class="line">			node* pre = findMAX(root-&gt;left, x);</span><br><span class="line">			root-&gt;data = pre-&gt;data;</span><br><span class="line">			deleteNode(root-&gt;left, pre-&gt;data);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			node* next = findMin(root-&gt;right);</span><br><span class="line">			root-&gt;data = next-&gt;data;</span><br><span class="line">			deleteNode(root-&gt;right, next-&gt;data);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(x &lt; root-&gt;data)</span><br><span class="line">		deleteNode(root-&gt;left, x);</span><br><span class="line">	else</span><br><span class="line">		deleteNode(root-&gt;right, x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="平衡二叉树-AVL树"><a href="#平衡二叉树-AVL树" class="headerlink" title="平衡二叉树(AVL树)"></a>平衡二叉树(AVL树)</h1><pre><code>* AVL树是一棵二叉查找树
+* 任意结点的左右子树高度之差(平衡因子)的绝对值不超过1</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">	int v, height;</span><br><span class="line">	node *left, *right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int getHeight(node* root) &#123;</span><br><span class="line">	if(root == NULL) return 0;</span><br><span class="line">	else return root-&gt;height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int getBalanceFactor(node* root) &#123;</span><br><span class="line">	return getHeight(root-&gt;left) - getHeight(root-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void updateHeight(node* root) &#123;</span><br><span class="line">	root-&gt;height = max(getHeight(root-&gt;left), getHeight(root-&gt;right)) + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="查找操作-1"><a href="#查找操作-1" class="headerlink" title="查找操作"></a>查找操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void search(node* root, const int x) &#123;</span><br><span class="line">	if(root == NULL) &#123;</span><br><span class="line">		printf(&quot;search failed!\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(x == root-&gt;data)</span><br><span class="line">		printf(&quot;%d\n&quot;, root-&gt;data);</span><br><span class="line">	else if(x &lt; root-&gt;data)</span><br><span class="line">		search(root-&gt;left, x);</span><br><span class="line">	else</span><br><span class="line">		search(root-&gt;right, x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插入操作-1"><a href="#插入操作-1" class="headerlink" title="插入操作"></a>插入操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//旋转问题：</span><br><span class="line">//左旋(Left Rotation)算法思想：</span><br><span class="line">①让B的左子树◆成为A的右子树</span><br><span class="line">②让A成为B的左子树</span><br><span class="line">③将根结点设定为结点B</span><br><span class="line"></span><br><span class="line">void L(node* &amp;root) &#123;</span><br><span class="line">	node* p = root-&gt;right;</span><br><span class="line">	root-&gt;right = p-&gt;left;</span><br><span class="line">	p-&gt;left = root;</span><br><span class="line">	updateHeight(root);</span><br><span class="line">	updateHeight(p);</span><br><span class="line">	root = p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//右旋(Right Rotation)算法思想：</span><br><span class="line">①让A的右子树◆成为B的左子树</span><br><span class="line">②让B成为A的右子树</span><br><span class="line">③将根结点设定为结点A</span><br><span class="line"></span><br><span class="line">void R(node* &amp;root) &#123;</span><br><span class="line">	node* p = root-&gt;left;</span><br><span class="line">	root-&gt;left = p-&gt;right;</span><br><span class="line">	p-&gt;right = root;</span><br><span class="line">	updateHeight(root);</span><br><span class="line">	updateHeight(p);</span><br><span class="line">	root = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//只要把最靠近插入结点的失衡结点调整到正常，路径上的所有结点就都会正常(可证明)</span><br><span class="line">//分LL型、LR型、RR型、RL型</span><br><span class="line">//LR -&gt; LL | RL -&gt; RR</span><br><span class="line">void insert(node* &amp;root, const int v) &#123;</span><br><span class="line">	if(root == NULL) &#123; //插入位置</span><br><span class="line">		root = new node;</span><br><span class="line">		root-&gt;v = v;</span><br><span class="line">		root-&gt;height = 1;</span><br><span class="line">		root-&gt;left = root-&gt;right = NULL;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(v &lt; root-&gt;v) &#123;</span><br><span class="line">		insert(root-&gt;left, v);</span><br><span class="line">		updateHeight(root);</span><br><span class="line">		if(getBalanceFactor(root) == 2) &#123;</span><br><span class="line">			if(getBalanceFactor(root-&gt;left) == 1) //LL型</span><br><span class="line">				R(root);</span><br><span class="line">			else if(getBalanceFactor(root-&gt;left) == -1) &#123; //LR型</span><br><span class="line">				L(root-&gt;left);</span><br><span class="line">				R(root);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		insert(root-&gt;right, v);</span><br><span class="line">		updateHeight(root);</span><br><span class="line">		if(getBalanceFactor(root) == -2) &#123;</span><br><span class="line">			if(getBalanceFactor(root-&gt;right) == -1) //RR型</span><br><span class="line">				L(root);</span><br><span class="line">			else if(getBalanceFactor(root-&gt;left) == 1) &#123; //RL型</span><br><span class="line">				R(root-&gt;right);</span><br><span class="line">				L(root);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AVL树的建立"><a href="#AVL树的建立" class="headerlink" title="AVL树的建立"></a>AVL树的建立</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node* create(int data[]) &#123;</span><br><span class="line">	node* root = NULL;</span><br><span class="line">	for(const auto v : data) insert(root, v);</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="并-Union-查-Find-集-Set"><a href="#并-Union-查-Find-集-Set" class="headerlink" title="并(Union)查(Find)集(Set)"></a>并(Union)查(Find)集(Set)</h1><pre><code>* 合并：合并两个集合
+* 查找：判断两个元素是否在一个集合
+* 并查集产生的每一个集合都是一棵树
+* int father[N]; //并查集数组</code></pre><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 1; i &lt;= N; i++)</span><br><span class="line">	father[i] = i;</span><br></pre></td></tr></table></figure>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//iterator</span><br><span class="line">int findFather(int x)&#123;</span><br><span class="line">	while(x != father[x]) x = father[x];</span><br><span class="line">	return x;</span><br><span class="line">&#125;</span><br><span class="line">//recursion</span><br><span class="line">int findFather(int x) &#123;</span><br><span class="line">	if(x == father[x]) return x;</span><br><span class="line">	else return findFather(father[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Union(int a, int b) &#123;</span><br><span class="line">	int faA = findFather(a);</span><br><span class="line">	int faB = findFather(b);</span><br><span class="line">	if(faA != faB)</span><br><span class="line">		father[faA] = faB;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">算法思想：</span><br><span class="line">①按原来的写法获得v的根结点root</span><br><span class="line">②重新从v开始走一遍寻找根结点的过程，把路径上经过的所有结点的父亲全部改为根结点</span><br><span class="line">int findFather(int v) &#123; //T(n) = O(1)</span><br><span class="line">	if(v == father[v]) return v; // 找到根结点</span><br><span class="line">	else &#123;</span><br><span class="line">		//让当前结点v的父亲全部改为根结点</span><br><span class="line">		int root = findFather(father[v]);</span><br><span class="line">		father[v] = root;</span><br><span class="line">		return root;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="堆-heap-与堆排序"><a href="#堆-heap-与堆排序" class="headerlink" title="堆(heap)与堆排序"></a>堆(heap)与堆排序</h1><pre><code>* 堆是一个完全二叉树
+* 大顶堆 和 小顶堆
+* 堆可以用来实现优先队列
+* int heap[maxn], n; // n为元素个数</code></pre><h2 id="向下调整"><a href="#向下调整" class="headerlink" title="向下调整"></a>向下调整</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//向下调整 T(n) = O(logn)</span><br><span class="line">//其中low为欲调整的数组下表，high一般为堆的最后一个元素的数组下标</span><br><span class="line">void downAdjust(int low, int high) &#123;</span><br><span class="line">	int i = low, j = i * 2;</span><br><span class="line">	while(j &lt;= high) &#123;</span><br><span class="line">		if(j + 1 &lt;= high &amp;&amp; heap[j+1] &gt; heap[j])</span><br><span class="line">			j = j + 1;</span><br><span class="line">		if(heap[j] &gt; heap[i]) &#123;</span><br><span class="line">			swap(heap[j], heap[i]);</span><br><span class="line">			i = j;</span><br><span class="line">			j = i * 2;</span><br><span class="line">		&#125;</span><br><span class="line">		else break;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="建堆"><a href="#建堆" class="headerlink" title="建堆"></a>建堆</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//从最后一名同学位置开始，从下往上 从右往左</span><br><span class="line">//左轮·D·普拉西多</span><br><span class="line">// T(n) = O(n)</span><br><span class="line">void createHeap() &#123;</span><br><span class="line">	for (int i = n / 2; i &gt;= 1; i--) &#123;</span><br><span class="line">		downAdjust(i, n);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="删除堆顶"><a href="#删除堆顶" class="headerlink" title="删除堆顶"></a>删除堆顶</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// T(n) = O(n)</span><br><span class="line">void deleteTop()&#123;</span><br><span class="line">	heap[1] = heap[n--]; //用最后一个元素覆盖堆顶元素，并让元素个数减1</span><br><span class="line">	downAdjust(1,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="向上调整"><a href="#向上调整" class="headerlink" title="向上调整"></a>向上调整</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// T(n) = O(logn)</span><br><span class="line">void upAdjust(int low, int high) &#123;</span><br><span class="line">	int i = high, j = i / 2;</span><br><span class="line">	while(j &gt;= low)&#123;</span><br><span class="line">		if(heap[i] &gt; heap[j])&#123;</span><br><span class="line">			swap(heap[i], heap[j]);</span><br><span class="line">			i = j;</span><br><span class="line">			j = i / 2;</span><br><span class="line">		&#125;</span><br><span class="line">		else break;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="堆的插入"><a href="#堆的插入" class="headerlink" title="堆的插入"></a>堆的插入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void insert(node* root, int x) &#123;</span><br><span class="line">	heap[++n] = x; // 加入到堆最后一个元素后面，并让元素个数加1</span><br><span class="line">	upAdjust(1, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="堆排序-heap-sort"><a href="#堆排序-heap-sort" class="headerlink" title="堆排序(heap sort)"></a>堆排序(heap sort)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void heapSort() &#123;</span><br><span class="line">	createHeap();</span><br><span class="line">	for (int i = n; i &gt; 1; i--)&#123;</span><br><span class="line">		swap(heap[1], heap[i]);</span><br><span class="line">		downAdjust(1,i - 1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//算法思想：</span><br><span class="line">//反复选择两个最小的元素，合并，直到只剩下一个元素</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">priority_queue&lt;long long, vector&lt;long long&gt;, greater&lt;long long&gt; &gt; q;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int n;</span><br><span class="line">	long long temp, x, y, ans = 0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (int i = 0; i &lt; n; i++)&#123;</span><br><span class="line">		scanf(&quot;%lld&quot;, &amp;temp);</span><br><span class="line">		q.push(temp);</span><br><span class="line">	&#125;</span><br><span class="line">	while(q.size() &gt; 1) &#123;</span><br><span class="line">		x = q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		y = q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		q.push(x + y);</span><br><span class="line">		ans += x + y;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%lld\n&quot;, ans);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2020/03/13/Tree/">树算法</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Kino 的个人博客">Kino</a></p>
+        <p><span>发布时间:</span>2020年03月13日 - 07时46分</p>
+        <p><span>最后更新:</span>2020年03月13日 - 14时59分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/03/13/Tree/" title="树算法">https://cybaol.github.io/2020/03/13/Tree/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://cybaol.github.io/2020/03/13/Tree/　　作者: Kino" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2019/11/19/ambition/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Be a magical developer</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉树的遍历"><span class="toc-number">1.</span> <span class="toc-text">二叉树的遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#层序遍历"><span class="toc-number">1.1.</span> <span class="toc-text">层序遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#建立二叉树"><span class="toc-number">2.</span> <span class="toc-text">建立二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#已知先序中序"><span class="toc-number">2.1.</span> <span class="toc-text">已知先序中序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉查找树-BST"><span class="toc-number">3.</span> <span class="toc-text">二叉查找树(BST)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查找操作"><span class="toc-number">3.1.</span> <span class="toc-text">查找操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入操作"><span class="toc-number">3.2.</span> <span class="toc-text">插入操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉查找树的建立"><span class="toc-number">3.3.</span> <span class="toc-text">二叉查找树的建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉查找树的删除"><span class="toc-number">3.4.</span> <span class="toc-text">二叉查找树的删除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平衡二叉树-AVL树"><span class="toc-number">4.</span> <span class="toc-text">平衡二叉树(AVL树)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查找操作-1"><span class="toc-number">4.1.</span> <span class="toc-text">查找操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入操作-1"><span class="toc-number">4.2.</span> <span class="toc-text">插入操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVL树的建立"><span class="toc-number">4.3.</span> <span class="toc-text">AVL树的建立</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#并-Union-查-Find-集-Set"><span class="toc-number">5.</span> <span class="toc-text">并(Union)查(Find)集(Set)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">5.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找"><span class="toc-number">5.2.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并"><span class="toc-number">5.3.</span> <span class="toc-text">合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径压缩"><span class="toc-number">5.4.</span> <span class="toc-text">路径压缩</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆-heap-与堆排序"><span class="toc-number">6.</span> <span class="toc-text">堆(heap)与堆排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#向下调整"><span class="toc-number">6.1.</span> <span class="toc-text">向下调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建堆"><span class="toc-number">6.2.</span> <span class="toc-text">建堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除堆顶"><span class="toc-number">6.3.</span> <span class="toc-text">删除堆顶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向上调整"><span class="toc-number">6.4.</span> <span class="toc-text">向上调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆的插入"><span class="toc-number">6.5.</span> <span class="toc-text">堆的插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆排序-heap-sort"><span class="toc-number">6.6.</span> <span class="toc-text">堆排序(heap sort)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#哈夫曼树"><span class="toc-number">7.</span> <span class="toc-text">哈夫曼树</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2019/11/19/ambition/" title="下一篇: Be a magical developer">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/Tree/">树算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/ambition/">Be a magical developer</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/07/book/">大学阅读记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/01/Graph/">图论算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/warings/">debug</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Kino
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
