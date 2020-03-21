@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>动态规划专题 | 钱多多の博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Dynamic Programming">
+<meta name="keywords" content="动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划专题">
+<meta property="og:url" content="https:&#x2F;&#x2F;cybaol.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;DP&#x2F;index.html">
+<meta property="og:site_name" content="钱多多の博客">
+<meta property="og:description" content="Dynamic Programming">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-21T00:44:40.603Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: true
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Kino</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/categories/books">我读过的书</a></li>
+                        
+                            <li><a  href="/categories/algorithm">算法</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/cybaol" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2216083675" title="weibo">weibo</a>
+                            
+                                <a class="fl bilibili"  target="_blank" href="https://space.bilibili.com/340738582" title="bilibili">bilibili</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">字符串</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E8%AD%A6%E7%A4%BA/" style="font-size: 10px;">警示</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 10px;">阅读</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">I am kino.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Kino</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Kino</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/categories/books">我读过的书</a></li>
+                
+                    <li><a href="/categories/algorithm">算法</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/cybaol" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2216083675" title="weibo">weibo</a>
+                    
+                        <a class="bilibili" target="_blank" href="https://space.bilibili.com/340738582" title="bilibili">bilibili</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/18/DP/" class="article-date">
+      <time datetime="2020-03-18T02:07:00.000Z" itemprop="datePublished">2020-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态规划专题
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Dynamic Programming</p>
+<a id="more"></a>
+<pre><code>* 动态规划是一种用来解决一类最优化问题的算法思想
+* 动态规划将一个复杂问题分解成若干子问题，通过综合子问题的最优解来求得原问题最优解
+* 动态规划会将每个求解过的子问题的解记录下来，这样当下一次碰到同样子问题时，就可以直接使用之前记录的结果，而不是重复计算
+* 状态的无后效性：当前状态记录了历史信息，一旦当前状态确定，就不会改变，且未来的决策只能在已有的一个或若干个状态的基础上进行，
+  历史信息只能通过已有的状态去影响未来的决策。
+* 一个问题必须拥有&quot;重叠子问题&quot;和&quot;最优子结构&quot;，才能用动态规划解决。
+* 重叠子问题：如果一个问题可以被分解为若干个子问题，且这些子问题会重复出现。
+* 最优子结构：如果一个问题的最优解可以由其子问题的最优解有效地构造出来，那么称为这个问题拥有的最优子结构。
+  最优子结构保证了动态规划中的原问题的最优解可以由子问题的最优解推导而来。
+* 分治与动态规划：分治和动态规划都是将问题分解为子问题，然后合并子问题的解得到原问题的解，
+  但是不同的是，分治法分解出的子问题时不重叠的，因此分治法解决的问题不拥有重叠子结构，而动态规划解决的问题拥有重叠子结构。
+* 贪心与动态规划：贪心和动态规划都要求原问题必须拥有最优子结构。二者的区别在于，
+  贪心直接选择一个子问题去求解，会抛弃一些子问题，这种选择的正确性需要用归纳法证明，而动态规划会考虑所有的子问题。
+* 动态规划的核心是&quot;如何设计状态和状态转移方程&quot;。</code></pre><h2 id="递归法和递推法"><a href="#递归法和递推法" class="headerlink" title="递归法和递推法"></a>递归法和递推法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">递归写法（记忆化搜索）</span><br><span class="line">斐波那契(Fibonacci)数列</span><br><span class="line"><span class="comment">//T(n) = O(2^n)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span> || n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> F(n<span class="number">-1</span>) + F(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dp[n]记录F[n]的结果，并用dp[n] = <span class="number">-1</span>表示F[n]当前还没有被计算过。</span><br><span class="line"><span class="comment">//T(n) = O(n)</span></span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span> || n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(dp[n] != <span class="number">-1</span>) <span class="keyword">return</span> dp[n];</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		dp[n] = F(n<span class="number">-1</span>) + F(n<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">return</span> dp[n];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">递推写法</span><br><span class="line">数塔问题</span><br><span class="line"></span><br><span class="line">令dp[i][j]表示从第i行第j个数字除法的到达最底层的所有路径中能得到的最大和。</span><br><span class="line">则状态转移方程：</span><br><span class="line">	dp[i][j] = max&#123;dp[i+<span class="number">1</span>][j],d[i+<span class="number">1</span>][j+<span class="number">1</span>]&#125; + f[i][j]</span><br><span class="line"></span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">uisng <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">int</span> f[maxn][maxn], dp[maxn][maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i j++) &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;f[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//边界(第n层)</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">		dp[n][j] = f[n][j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//从第n-1层不断往上计算出dp[i][j]</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">			dp[i][j] = max&#123;dp[i+<span class="number">1</span>][j],d[i+<span class="number">1</span>][j+<span class="number">1</span>]&#125; + f[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[<span class="number">1</span>][<span class="number">1</span>]); <span class="comment">//dp[1][1]即为所需要的答案</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最大连续子序列和"><a href="#最大连续子序列和" class="headerlink" title="最大连续子序列和"></a>最大连续子序列和</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">给定一个数字序列A1,A2,···,An,求i,j（<span class="number">1</span>≤i≤j≤n），使得Ai+···+Aj最大，输出这个最大和</span><br><span class="line">样例：<span class="number">-2</span> <span class="number">11</span> <span class="number">-4</span> <span class="number">13</span> <span class="number">-5</span> <span class="number">-2</span></span><br><span class="line">则最大和为<span class="number">20</span>（<span class="number">11</span><span class="number">-4</span>+<span class="number">13</span>）</span><br><span class="line"></span><br><span class="line">步骤<span class="number">1</span>：令状态dp[i]表示以A[i]作为末尾的连续序列的最大和，以样例为例：序列<span class="number">-2</span> <span class="number">11</span> <span class="number">-4</span> <span class="number">13</span> <span class="number">-5</span> <span class="number">-2</span>，下标分别为<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>，那么</span><br><span class="line">dp[<span class="number">0</span>] = <span class="number">-2</span></span><br><span class="line">dp[<span class="number">1</span>] = <span class="number">11</span></span><br><span class="line">dp[<span class="number">2</span>] = <span class="number">7</span></span><br><span class="line">dp[<span class="number">3</span>] = <span class="number">20</span></span><br><span class="line">dp[<span class="number">4</span>] = <span class="number">15</span></span><br><span class="line">dp[<span class="number">5</span>] = <span class="number">13</span></span><br><span class="line">步骤<span class="number">2</span>：作如下考虑：因为dp[i]要求是必须以A[i]结尾的连续序列，那么只有两种情况：</span><br><span class="line">① 这个最大和的连续序列只有一个元素，即以A[i]开始，以A[i]结尾</span><br><span class="line">② 这个最大和的连续序列有多个元素，即以前面某处A[p]开始(p&lt;i)，一直到A[i]结尾</span><br><span class="line">对第一种情况，最大和就是A[i]本身</span><br><span class="line">对第二种情况，最大和是dp[i<span class="number">-1</span>]+A[i],即A[p]+···+A[i<span class="number">-1</span>]+A[i] = dp[i<span class="number">-1</span>]+A[i]</span><br><span class="line">由于只有两种情况，于是得到状态转移方程:</span><br><span class="line">				dp[i] = max&#123;A[i], dp[i<span class="number">-1</span>]+A[i]&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//T(n) = O(n)</span></span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> A[maxn], dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, A + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> sum = dp[<span class="number">0</span>] = A[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		dp[i] = max(A[i], dp[i<span class="number">-1</span>] + A[i]);</span><br><span class="line">		sum = max(sum, dp[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最长不下降子序列"><a href="#最长不下降子序列" class="headerlink" title="最长不下降子序列"></a>最长不下降子序列</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">在一个数字序列中，找到一个最长的子序列(可以不连续)，使得这个子序列是不下降(非递减)的。</span><br><span class="line">例如,现有序列A=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">7</span>,<span class="number">9</span>&#125;(下标从<span class="number">1</span>开始)，它的最长不下降子序列是&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">9</span>&#125;，长度为<span class="number">5</span></span><br><span class="line"></span><br><span class="line">令dp[i]表示以A[i]结尾的最长不下降子序列长度，这样对A[i]来说有两种可能：</span><br><span class="line">① 如果存在A[i]之前的元素A[j]（j&lt;i）使得A[j]≤A[i]且dp[j] + <span class="number">1</span> &gt; dp[i]（即</span><br><span class="line">把A[i]跟在以A[j]结尾的LIS后面时能比当前以A[i]结尾的LIS长度更长），那么就把A[i]跟在A[j]结尾的LIS后面，</span><br><span class="line">形成一条更长的不下降子序列(令 dp[i] = d[j] + <span class="number">1</span>)</span><br><span class="line">② 如果A[i]之前的元素都比，那么A[i]就只好自己形成一条LIS，但是长度为<span class="number">1</span>，即这个子序列里面只有一个A[i]。</span><br><span class="line">最后以A[i]结尾的LIS长度就是①②中能形成的最大长度</span><br><span class="line">由此可以写出状态转移方程：</span><br><span class="line">			dp[i] = max&#123;<span class="number">1</span>, dp[j]+<span class="number">1</span>&#125;</span><br><span class="line">	              (j=<span class="number">1</span>,<span class="number">2</span>,···,i<span class="number">-1</span> &amp;&amp; A[j]＜A[i])</span><br><span class="line"></span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> A[N], dp[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, A + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">-1</span>;  <span class="comment">//记录最大的dp[i]</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		dp[i] = <span class="number">1</span>; <span class="comment">//边界初始条件(即先假设每个元素自成一个序列)</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(A[i] &gt;= A[j] &amp;&amp; (dp[j] + <span class="number">1</span> &gt; dp[i])) &#123;</span><br><span class="line">				dp[i] = dp[j] + <span class="number">1</span>;  <span class="comment">//状态转移方程，用以更新dp[i]</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = max(ans, dp[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最长公共子序列-LCS"><a href="#最长公共子序列-LCS" class="headerlink" title="最长公共子序列(LCS)"></a>最长公共子序列(LCS)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">给定两个字符串(或数字序列)A 和 B，求一个字符串，使得这个字符串是A和B的最长公共部分(子序列可以不连续)</span><br><span class="line">样例：字符串<span class="string">"sadstory"</span>和<span class="string">"adminsorry"</span>的最长公共子序列为<span class="string">"adsory"</span>长度为<span class="number">6</span></span><br><span class="line"></span><br><span class="line">令dp[i][j]表示字符串A的i号位和字符串B的j号位之前的LCS长度(下标从<span class="number">1</span>开始)，如dp[<span class="number">4</span>][<span class="number">5</span>]表示<span class="string">"sads"</span>与<span class="string">"admin"</span>的LCS长度。那么可以根据A[i]和B[j]的情况，分为两种决策：</span><br><span class="line">① 若A[i] == B[j]，则字符串A与字符串B的LCS增加了<span class="number">1</span>位，即有dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>。</span><br><span class="line">② 若A[i] ≠ B[j]，则字符串A的i号位和字符串B的j号位之前的LCS无法<span class="number">1</span>延长，因此dp[i][j]将会继承dp[i<span class="number">-1</span>][j]和dp[i][j<span class="number">-1</span>]中的较大值，即有dp[i][j] = max&#123;dp[i<span class="number">-1</span>][j],dp[i]][j<span class="number">-1</span>]&#125;。</span><br><span class="line">由此得到状态转移方程：</span><br><span class="line">		dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>], <span class="keyword">if</span> A[i] == B[i]</span><br><span class="line">		dp[i][j] = max&#123;dp[i<span class="number">-1</span>][j], dp[i][j<span class="number">-1</span>]&#125;, <span class="keyword">if</span> A[i] ≠ B[i]</span><br><span class="line">边界：dp[i][<span class="number">0</span>] = dp[<span class="number">0</span>][j] = <span class="number">0</span> (<span class="number">0</span>≤i≤n， <span class="number">0</span>≤j≤m)</span><br><span class="line">最终dp[n][m]即为答案</span><br><span class="line"></span><br><span class="line"><span class="comment">//T(n) = O(nm);</span></span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">char</span> A[N], B[N];</span><br><span class="line"><span class="keyword">int</span> dp[N][N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	gets(A + <span class="number">1</span>); gets(B + <span class="number">1</span>);</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	for(int i = 0; i &lt;= strlen(A + 1); i++) &#123;</span></span><br><span class="line"><span class="comment">		dp[i][0] = 0;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	for(int j = 0; j &lt;= strlen(A + 1); j++) &#123;</span></span><br><span class="line"><span class="comment">		dp[0][j] = 0;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="built_in">strlen</span>(A + <span class="number">1</span>); i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="built_in">strlen</span>(B + <span class="number">1</span>); j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(A[i] == B[j]) &#123;</span><br><span class="line">				dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				dp[i][j] = max(dp[i<span class="number">-1</span>][j], dp[i][j<span class="number">-1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dp[<span class="built_in">strlen</span>(A + <span class="number">1</span>)][<span class="built_in">strlen</span>(B + <span class="number">1</span>)]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">给出一个字符串s，求S的最长回文子串的长度。</span><br><span class="line">样例：字符串<span class="string">"PATZJUJZTACCBCC"</span>的最长回文子串是<span class="string">"ATZJUJZTA"</span>,长度为<span class="number">9</span>。</span><br><span class="line"></span><br><span class="line">令dp[i][j]表示S[i]至S[j]所表示的子串是否是回文子串，是则为<span class="number">1</span>，不是为<span class="number">0</span>。</span><br><span class="line">这样根据S[i]是否等于S[j]，可以把转移情况分为两类：</span><br><span class="line">① 若S[i] == S[j]，那么只要S[i+<span class="number">1</span>]至S[j<span class="number">-1</span>]是回文子串，S[i]至S[j]就是回文子串；</span><br><span class="line">如果S[i+<span class="number">1</span>]至S[j<span class="number">-1</span>]不是回文子串。则S[i]至S[j]一定不是回文子串。</span><br><span class="line">② 若S[i] ≠ S[j]，那么S[i]至S[j]一定不是回文子串。</span><br><span class="line">由此可以写出状态转移方程：</span><br><span class="line">		dp[i][j] = dp[i+<span class="number">1</span>][j<span class="number">-1</span>], <span class="keyword">if</span> S[i] == S[j]</span><br><span class="line">		dp[i][j] = <span class="number">0</span>, <span class="keyword">if</span> S[i] ≠ S[j]</span><br><span class="line">边界：dp[i][i] = <span class="number">1</span>, dp[i][i+<span class="number">1</span>] = (S[i] == S[i+!]) ? <span class="number">1</span> : <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//T(n) = O(n²)</span></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">char</span> S[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn][maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>.getline(S, maxn);</span><br><span class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(S), ans = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">	<span class="comment">//边界</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		dp[i][i] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(i &lt; len - <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span>(S[i] == S[i+<span class="number">1</span>]) &#123;</span><br><span class="line">				dp[i][i+<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">				ans = <span class="number">2</span>; <span class="comment">//当前最长回文子串长度</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//状态转移方程</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> L = <span class="number">3</span>; L &lt;= len; L++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i + L <span class="number">-1</span> &lt; len; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> j = i + L - <span class="number">1</span>; <span class="comment">//子串右端点</span></span><br><span class="line">			<span class="keyword">if</span>(S[i] == S[j] &amp;&amp; dp[i+<span class="number">1</span>][j<span class="number">-1</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">				dp[i][j] = <span class="number">1</span>;</span><br><span class="line">				ans = L;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">二分+字符串<span class="function">hash <span class="title">T</span><span class="params">(n)</span> </span>= O(nlogn)</span><br><span class="line">Manacher算法 T(n) = O(n)</span><br></pre></td></tr></table></figure>
+<h2 id="DAG最长路"><a href="#DAG最长路" class="headerlink" title="DAG最长路"></a>DAG最长路</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">解决两个问题</span><br><span class="line">① 求整个DAG中的最长路径(不固定起点和终点)</span><br><span class="line">② 固定终点，求DAG的最长路径</span><br><span class="line"></span><br><span class="line">第一个问题：给定一个有向无环图，怎样求解整个图的所有路径中权值之和最大的那条。</span><br><span class="line">令dp[i]表示从i号顶点除法能获得的最长路径长度，这样所有dp[i]的最大值就是整个DAG的最长路径长度。</span><br><span class="line">如果从i号顶点出发能直接到达顶点j1,j2,···,jk,而dp[j1], dp[j2], ···,dp[jk]均已知，</span><br><span class="line">那么就有dp[i] = max&#123;dp[j] + length[i-&gt;j],(i,j)∈E&#125;</span><br><span class="line">根据上面思路可以按照逆拓扑序列的顺序来求解dp数组</span><br><span class="line">所以我选择递归(｡･ω･｡)</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> DP(<span class="keyword">int</span> i) &#123;</span><br><span class="line">	<span class="keyword">if</span>(dp[i] &gt; <span class="number">0</span>) <span class="keyword">return</span> dp[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(G[i][j] != INF) &#123;</span><br><span class="line">			dp[i] = max(dp[i], DP[j] + G[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">开一个<span class="keyword">int</span>型choice数组记录最长路径的后继结点，</span><br><span class="line">如果最终有多条路径，将choice数组改为<span class="built_in">vector</span>类型的数组(Dijkstra算法中有多条路径时的做法)，记得去实现它哦。</span><br><span class="line">还有如何求解最长路径条数。</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DP</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(dp[i] &gt; <span class="number">0</span>) <span class="keyword">return</span> dp[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123; <span class="comment">//遍历i的所有出边</span></span><br><span class="line">		<span class="keyword">if</span>(G[i][j] != INF) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = DP[i] + G[i][j];</span><br><span class="line">			<span class="keyword">if</span>(temp &gt; dp[i]) &#123;</span><br><span class="line">				dp[i] = temp;</span><br><span class="line">				choice[i] = j; <span class="comment">//i号顶点的后继顶点是j</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[i]; <span class="comment">//返回计算完的dp[i]</span></span><br><span class="line">&#125;</span><br><span class="line">调用printPath前需要先得到最大的dp[i]，然后将i作为路径起点传入</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printPath</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, i);</span><br><span class="line">	<span class="keyword">while</span>(choice[i] != <span class="number">-1</span>) &#123; <span class="comment">//choice数组初始化为-1</span></span><br><span class="line">		i = choice[i];</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"-&gt;%d"</span>, i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">第二个问题：固定终点，求DAG的最长路径</span><br><span class="line">令dp[i]表示从i号顶点出发到达终点（假设终点为T）能获得的最长路径长度，</span><br><span class="line">同理，如果从i号顶点出发能直接到达顶点j1,j2,···,jk,而dp[j1], dp[j2], ···,dp[jk]均已知，</span><br><span class="line">那么就有dp[i] = max&#123;dp[j] + length[i-&gt;j],(i,j)∈E&#125;</span><br><span class="line">边界：dp[T] = <span class="number">0</span>， so problem is coming， 数组不能初始化为<span class="number">0</span>了</span><br><span class="line">合适做法：初始化dp数组为一个负的大数来保证<span class="string">"无法到达终点"</span>的含义得以表达，然后设置一个vis数组表示顶点是否已经被计算。</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> DP(<span class="keyword">int</span> i) &#123;</span><br><span class="line">	<span class="keyword">if</span>(vis[i] == <span class="literal">true</span>) <span class="keyword">return</span> dp[i]; <span class="comment">//dp[i]已计算得到直接返回，减少重复计算</span></span><br><span class="line">	vis[i] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(G[i][j] != INF) &#123;</span><br><span class="line">			dp[i] = max(dp[i], DP[j] + G[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">经典问题：矩形嵌套问题</span><br></pre></td></tr></table></figure>
+<h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">01</span>背包问题：</span><br><span class="line">有n件物品，每件物品的重量为w[i]，价值为c[i]。现有一个容量为V的背包，</span><br><span class="line">问如何选取物品放入背包，使得背包内物品的总价值最大。其中每件物品都只有<span class="number">1</span>件。</span><br><span class="line">样例：</span><br><span class="line"><span class="number">5</span> <span class="number">8</span>  <span class="comment">// n == 5,v == 8</span></span><br><span class="line"><span class="number">3</span> <span class="number">5</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="comment">// w[i]</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="comment">// c[i]</span></span><br><span class="line">T(n) = O(nV)</span><br><span class="line"></span><br><span class="line">令dp[i][j]表示前i件物品(<span class="number">1</span> ≤ i ≤ n，<span class="number">0</span> ≤ j ≤ v)恰好装入容量为j的背包中所能获得的最大价值。然后求解dp[i][j]：</span><br><span class="line">考虑对第i件物品的选择策略，有两种：</span><br><span class="line">① 不放第i件物品，那么问题转化为前i<span class="number">-1</span>件物品恰好装入容量为j的背包中所能获得的最大价值。也即dp[i<span class="number">-1</span>][j]。</span><br><span class="line">② 放第i件物品，那么问题转化为前i<span class="number">-1</span>件物品恰好装入容量为j-w[i]的背包中所能获得的最大价值。也即dp[i<span class="number">-1</span>][j-w[i]] + c[i]。</span><br><span class="line">因此状态转移方程为：</span><br><span class="line">	dp[i][j] = max&#123;dp[i<span class="number">-1</span>][j], dp[i<span class="number">-1</span>][j-w[i]] + c[i]&#125;</span><br><span class="line">	(<span class="number">1</span> ≤ i ≤ n，w[i] ≤ j ≤ v)</span><br><span class="line">边界: dp[<span class="number">0</span>][j] = <span class="number">0</span>（<span class="number">0</span> ≤ j ≤ v）</span><br><span class="line">答案: dp[n][v]</span><br><span class="line">空间复杂度: O(nv)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= v; j++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(j &lt; w[i]) &#123; <span class="comment">//鲲之大，一包装不下</span></span><br><span class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j];</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			dp[i][j] = max(dp[i<span class="number">-1</span>][j], dp[i<span class="number">-1</span>][j-w[i]] + c[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">优化: 一维: </span><br><span class="line">	dp[j] = max&#123;dp[j], dp[j-w[i]] + c[i]&#125;</span><br><span class="line">	(<span class="number">1</span> ≤ i ≤ n，w[i] ≤ j ≤ v)</span><br><span class="line">边界: dp[j] = <span class="number">0</span>, <span class="number">0</span> ≤ j ≤ v</span><br><span class="line">答案: dp[v]</span><br><span class="line">空间复杂度: O(v)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = v; j &gt;= w[i]; j--) &#123;</span><br><span class="line">		dp[j] = max(dp[j], dp[j-w[i]] + c[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">优化版完整代码：</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxv = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">int</span> w[maxn], c[maxn], dp[maxn] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, v;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;v);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, w + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, c + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = v; j &gt;= w[i]; j--) &#123;</span><br><span class="line">			dp[j] = max(dp[j], dp[j-w[i]] + c[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[v]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">如果需要知道是哪些物品被放入了背包，可用<span class="string">"回溯算法"</span>(针对未优化版本)</span><br><span class="line">算法思想：</span><br><span class="line">从表的右下角dp[n][v]开始回溯，</span><br><span class="line">如果发现前n个物品最佳组合的价值和前n<span class="number">-1</span>个物品的最佳组合的价值一样，说明第n个物品没有被装入。</span><br><span class="line">否则，第n个物品被装入。</span><br><span class="line">soluton: 增加一个object[], object[i] = <span class="literal">true</span>表示第i个物品被装入, <span class="literal">false</span>表示没装入。</span><br><span class="line"><span class="keyword">bool</span> object[maxn] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(i) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>, object[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(dp[i][j] == dp[i<span class="number">-1</span>][j]) &#123; <span class="comment">//第i个物品没有被装入</span></span><br><span class="line">		object[i] = <span class="literal">false</span>;</span><br><span class="line">		Find(i<span class="number">-1</span>, j);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123; <span class="comment">//第i个物品被装入</span></span><br><span class="line">		object[i] = <span class="literal">true</span>;</span><br><span class="line">		Find(i<span class="number">-1</span>,j-w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)最大连续子序列和</span><br><span class="line">令dp[i]表示以A[i]作为末尾的连续序列的最大和</span><br><span class="line">(<span class="number">2</span>)最长不下降子序列(LIS)</span><br><span class="line">令dp[i]表示以A[i]结尾的最长不下降子序列长度</span><br><span class="line">(<span class="number">3</span>)最长公共子序列(LCS)</span><br><span class="line">令dp[i][j]表示字符串A的i号位和字符串B的j号位之前的LCS长度</span><br><span class="line">(<span class="number">4</span>)最长回文子串</span><br><span class="line">令dp[i][j]表示S[i]至S[j]所表示的子串是否是回文子串</span><br><span class="line">(<span class="number">5</span>)数塔DP</span><br><span class="line">令dp[i][j]表示从第i行第j个数字除法的到达最底层的所有路径上所能得到的最大和</span><br><span class="line">(<span class="number">6</span>)DAG最长路</span><br><span class="line">令dp[i]表示从i号顶点出发能获得的最长路径长度</span><br><span class="line">(<span class="number">7</span>)<span class="number">01</span>背包</span><br><span class="line">令dp[i][v]表示前i件物品恰好装入容量为v的背包中能获得的最大价值。</span><br><span class="line">(<span class="number">8</span>)完全背包</span><br><span class="line">令dp[i][v]表示前i件物品恰好装入容量为v的背包中能获得的最大价值。</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>)-(<span class="number">4</span>): </span><br><span class="line">当题目与序列或字符串(记为A)有关时，可以考虑把状态设计成下面两种形式，然后根据端点特点去考虑状态转移方程。</span><br><span class="line">	① 令dp[i]表示以A[i]结尾（或开头）的XXX</span><br><span class="line">	② 令dp[i][j]表示A[i]至A[j]区间的XXX</span><br><span class="line">其中XXX均为原问题的表述。</span><br><span class="line"></span><br><span class="line">(<span class="number">5</span>)-(<span class="number">8</span>):</span><br><span class="line">状态设计都包含某种<span class="string">"方向"</span>的意思。</span><br><span class="line">分析题目中的状态需要几维来表示，然后对其中的每一维采取下面的某一个表述：</span><br><span class="line">① 恰好为i。</span><br><span class="line">② 前i。</span><br><span class="line">在每一维的含义设置完毕之后，dp数组的含义可以设置成<span class="string">"令dp数组表示恰好为i(或前i)、恰好为j(或前j)······的XXX"</span>,</span><br><span class="line">其中XXX为原问题的描述。接下来通过端点的特点去考虑状态转移方程。</span><br><span class="line"></span><br><span class="line">注：在大多数情况下，都可以把动态规划可解的问题看做一个DAG，图中的结点就是状态，边就是状态转移的方向，</span><br><span class="line">求解问题的顺序就是按照DAG的拓扑序列求解。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2020/03/18/DP/">动态规划专题</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Kino 的个人博客">Kino</a></p>
+        <p><span>发布时间:</span>2020年03月18日 - 10时07分</p>
+        <p><span>最后更新:</span>2020年03月21日 - 08时44分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/03/18/DP/" title="动态规划专题">https://cybaol.github.io/2020/03/18/DP/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://cybaol.github.io/2020/03/18/DP/　　作者: Kino" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2020/03/20/String/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          字符串专题
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2020/03/13/Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">树算法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#递归法和递推法"><span class="toc-number">1.</span> <span class="toc-text">递归法和递推法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最大连续子序列和"><span class="toc-number">2.</span> <span class="toc-text">最大连续子序列和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最长不下降子序列"><span class="toc-number">3.</span> <span class="toc-text">最长不下降子序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最长公共子序列-LCS"><span class="toc-number">4.</span> <span class="toc-text">最长公共子序列(LCS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最长回文子串"><span class="toc-number">5.</span> <span class="toc-text">最长回文子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAG最长路"><span class="toc-number">6.</span> <span class="toc-text">DAG最长路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背包问题"><span class="toc-number">7.</span> <span class="toc-text">背包问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2020/03/20/String/" title="上一篇: 字符串专题">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/03/13/Tree/" title="下一篇: 树算法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/String/">字符串专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/DP/">动态规划专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/Tree/">树算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/ambition/">Be a magical developer</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/07/book/">大学阅读记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/01/Graph/">图论算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/warings/">debug</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Kino
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
